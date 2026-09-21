@@ -75,7 +75,115 @@ Contexte d'utilisation : Indispensable pour observer l'évolution d'une variable
 
 <h1>Exemples de graphiques créés avec Google Sheets</h1>
 <h3>Diagramme à bandes</h3>
-<p>Tu vas remplacer ce paragraphe par le code iframe d'un graphique créé avec Google Sheets.  Les données proviendront des résultats du sondage fait en classe.  </p>
+<p><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jour de la semaine</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            margin: 30px;
+        }
+
+        .chart-container {
+            width: 700px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chart-container">
+    <h2>Count of Quel jour de la semaine es-tu né?</h2>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+
+        data: {
+            labels: [
+                'lundi',
+                'dimanche',
+                'mardi',
+                'vendredi',
+                'mercredi',
+                'samedi',
+                'jeudi'
+            ],
+
+            datasets: [{
+                label: 'Nombre de personnes',
+                data: [4, 5, 3, 8, 9, 2, 4],
+                backgroundColor: '#4285F4',
+                borderRadius: 2,
+                barPercentage: 0.65
+            }]
+        },
+
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                title: {
+                    display: false
+                }
+            },
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10,
+                    ticks: {
+                        stepSize: 2
+                    },
+                    title: {
+                        display: true,
+                        text: 'Count of Quel jour de la semaine es-tu né?'
+                    },
+                    grid: {
+                        color: '#d9d9d9'
+                    }
+                },
+
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Quel jour de la semaine es-tu né?'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>  </p>
 <h3>Histogramme</h3>
 <p>Tu vas remplacer ce paragraphe par le code iframe d'un graphique créé avec Google Sheets.  Les données proviendront des résultats du sondage fait en classe.  </p>
 <h3>Diagramme circulaire</h3>
